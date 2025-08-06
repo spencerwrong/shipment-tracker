@@ -1,0 +1,12 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# IDE/project files
+.idea/
+
+# Config files
+config.ini
+
+# Generated Files
+./test-data
