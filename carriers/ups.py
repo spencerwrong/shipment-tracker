@@ -1,15 +1,16 @@
-from datetime import datetime
 from dateutil.parser import isoparse
 import requests
 import time
 from tokens.ups_token import UPSToken
 
 class UPSClient:
+    UPS_PRODUCTION_URL = "https://wwwcie.ups.com"
+    UPS_SANDBOX_URL = "https://onlinetools.ups.com"
     def __init__(self, client_id: str, client_secret: str, use_sandbox: bool = True):
         self.client_id = client_id
         self.client_secret = client_secret
         self.token = None
-        self.base_url = "https://wwwcie.ups.com" if use_sandbox else "https://onlinetools.ups.com"
+        self.base_url = self.UPS_PRODUCTION_URL if use_sandbox else self.UPS_SANDBOX_URL
 
     def ups_generate_new_token(self):
         url = f"{self.base_url}/security/v1/oauth/token"
@@ -57,6 +58,5 @@ class UPSClient:
         }
 
         response = requests.get(url, headers=headers, params=query)
-
         tracking_data = response.json()
         return tracking_data

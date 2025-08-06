@@ -7,3 +7,6 @@ __pycache__/
 
 # Config files
 config.ini
+
+# Generated Files
+./test-data/ups/
