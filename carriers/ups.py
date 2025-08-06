@@ -1,7 +1,9 @@
-from dateutil.parser import isoparse
-import requests
 import time
-from tokens.ups_token import UPSToken
+
+import requests
+from dateutil.parser import isoparse
+
+from models.ups_token import UPSToken
 
 class UPSClient:
     UPS_PRODUCTION_URL = "https://wwwcie.ups.com"
